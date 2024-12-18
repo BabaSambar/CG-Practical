@@ -9,6 +9,7 @@
 #include <queue>
 #include <math.h>
 
+
 /*
 DIRECTIONS FOR USE:
 	Initialize Pattern object with window width and height
@@ -24,19 +25,19 @@ public:
 	{
 		ONE = 1,
 		TWO,
-		THREE,
-		FOUR
+		FRACTAL,
+		COHENSUTHERLAND
 	};
 
 	Pattern(int WINDOW_WIDTH, int WINDOW_HEIGHT, int DELAY);
 
 	void setInputData(PATTERN pattern);
 	void display(void);
+	static void drawLine(int x1, int y1, int x2, int y2, int DELAY);
+	static void drawCircle(int xc, int yc, int r, int DELAY);
+	float roundFloat(float x);
 
 private:
-	void drawLine(int x1, int y1, int x2, int y2);
-	void drawCircle(int xc, int yc, int r);
-	float roundFloat(float x);
 
 	PATTERN mSelectedPattern = ONE;
 	int WINDOW_WIDTH, WINDOW_HEIGHT, DELAY;

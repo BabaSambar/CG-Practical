@@ -136,7 +136,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\matrix.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Pattern.cpp" />
     <ClCompile Include="Transformer.cpp" />
@@ -164,9 +163,11 @@
     </CopyFileToFolders>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="graphicAlgorithms.h" />
     <ClInclude Include="Pattern.h" />
     <ClInclude Include="Transformer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Workflow.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,39 @@
+
+
+Transformer2D class:
+	Public:
+		Scale Transform
+		Rotate Transform
+		Translate Transform
+
+		Load Transforms
+		Calculate Transforms
+
+		
+Transformer3D class:
+	Public:
+		Scale Transform
+		Rotate Transform
+		Translate Transform
+
+		Load Transforms
+		Calculate Transforms
+
+Pattern class(Renderer):
+	Public:
+		Drawline function
+			Implement Cohen Sutherland
+		DrawShape function
+		DrawCircle function
+
+		Fixed Pattern drawings
+			...
+		Fractal drawings
+			...
+
+		Flood Fill algorithms
+		Boundary Fill algorithms
+
+		Render drawings
+			
+

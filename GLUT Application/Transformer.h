@@ -5,43 +5,34 @@
 #include <gl/GL.h>
 #include <vector>
 #include <iostream>
-#include <stack>
+#include <queue>
 #include <math.h>
 
-/*
-NOTE:
-    Transformer only supports drawing and transforming polygons, not circles.
 
-DIRECTIONS TO USE:
-    Initialize transformer class (Either enter number of vertices at end else it dynamically identifies them)
-    Add transforms using addTransform<Transform> methods
-    Update the transformer to multiply transformation matrices
-    Apply the transformed matrix to any input matrix of 3xV dimensions (V are number of vertices)
-    Returns output as 3xV 2D vector matrix
-*/
-namespace Transformer
+class Transformer
 {
-    class Transform2D
-    {
-    public:
+public:
+	virtual std::vector<std::vector<double>> applyTransform(std::vector<std::vector<double>> inputMatrix);
+	virtual std::vector<std::vector<double>> matrixMultiply(std::vector<std::vector<double>>& mat1, std::vector<std::vector<double>>& mat2);
+	virtual void displayMatrix(std::vector<std::vector<double>> data);
+protected:
+	std::queue<std::vector<std::vector<double>>> mTransformQueue;
+};
 
-        Transform2D();
+class Transform2D : public Transformer
+{
+public:
+	Transform2D(std::vector<std::vector<double>>& data);
+	void addTranslation(double tx, double ty);
+	void addScaling(double sx, double sy, double xf=0, double yf=0);
+	void addRotation(double theta, double xr=0, double yr=0);
+};
 
-        // Add transforms to queue
-        void addTransformTranslate(double tx, double ty);
-        void addTransformScale(double sx, double sy, double xf, double yf);
-        void addTransformRotate(double theta, double xr, double yr);
-
-        // Apply transform to data matrix
-        std::vector<std::vector<double>> applyTransform(std::vector<std::vector<double>> inputMatrix);
-
-        // matrix display function for debugging
-        void displayMatrix(std::vector<std::vector<double>> data);
-    private:
-
-        // Private matrix multiply function
-        std::vector<std::vector<double>> matrixMultiply(std::vector<std::vector<double>>& mat1, std::vector<std::vector<double>>& mat2);
-
-        std::stack<std::vector<std::vector<double>>> mTransformData;
-    };
-}
+class Transform3D: public Transformer
+{
+public:
+	Transform3D();
+	void addTranslation(double tx, double ty, double tz);
+	void addScaling(double sx, double sy, double sz, double xf=0, double yf=0, double zf=0);
+	void addRotation(double theta, char axis='x', double xr = 0, double yr = 0, double zr = 0);
+};
