@@ -143,15 +143,6 @@ void display(void)
 	p.setInputData(Pattern::COHENSUTHERLAND);
 	p.display();
 
-	/*
-	int xStart = 0;
-	int yStart = 0;
-	int depth = 5;
-	int stepsize = 600 / (1 << depth);
-	drawHilbert(depth, stepsize);
-	*/
-
-
 	glFlush();
 }
 

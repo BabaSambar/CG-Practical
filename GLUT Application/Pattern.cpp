@@ -97,9 +97,7 @@ void Pattern::setInputData(PATTERN pattern)
 		// 4 data entries
 		mData[ONE] = std::vector<int>(4);
 		for (int i = 0; i < mData[ONE].size(); i++)
-		{
 			std::cin >> mData[ONE][i];
-		}
 		this->mSelectedPattern = ONE;
 		break;
 	}	
@@ -108,9 +106,7 @@ void Pattern::setInputData(PATTERN pattern)
 		// 6 data entries
 		mData[TWO] = std::vector<int>(6);
 		for (int i = 0; i < mData[TWO].size(); i++)
-		{
 			std::cin >> mData[TWO][i];
-		}
 		this->mSelectedPattern = TWO;
 		break;
 	}
@@ -119,9 +115,7 @@ void Pattern::setInputData(PATTERN pattern)
 		// 2 data entries
 		mData[FRACTAL] = std::vector<int>(2);
 		for (int i = 0; i < mData[FRACTAL].size(); i++)
-		{
 			std::cin >> mData[FRACTAL][i];
-		}
 		this->mSelectedPattern = FRACTAL;
 		break;
 	}
@@ -149,23 +143,13 @@ void Pattern::setInputData(PATTERN pattern)
 void move(int j, int h, int& x, int& y)
 {
 	if (j == 1)
-	{
 		y -= h;
-	}
 	else if (j == 2)
-	{
 		x += h;
-	}
-
 	else if (j == 3)
-	{
 		y += h;
-	}
-
 	else if (j == 4)
-	{
 		x -= h;
-	}
 }
 
 void hilbert(int level, int dir, int size, int& x, int& y)
@@ -190,7 +174,6 @@ void drawHilbert(int level, int size)
 {
 	int x = size / 2;
 	int y = size / 2;
-
 	hilbert(level, 1, size / (1 << level), x, y);
 }
 
